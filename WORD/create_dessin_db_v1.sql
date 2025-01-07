@@ -50,7 +50,7 @@ CREATE TABLE Competiteurs (
     numCompetiteur INT PRIMARY KEY,
     datePremiereParticipation DATE NOT NULL,
     FOREIGN KEY (numCompetiteur) REFERENCES Utilisateurs(numUtilisateur)
-)
+);
 
 CREATE TABLE Dessins (
     numDessins INT AUTO_INCREMENT PRIMARY KEY,
