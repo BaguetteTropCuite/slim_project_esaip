@@ -1,39 +1,35 @@
 CREATE DATABASE ConcoursDessin;
 USE ConcoursDessin;
 
--- Table Club
 CREATE TABLE Club (
     numClub INT AUTO_INCREMENT PRIMARY KEY,
     numDirecteur INT NOT NULL,
     nomClub VARCHAR(255) NOT NULL,
     adresse VARCHAR(255),
     numTelephone VARCHAR(15),
-    nombreAdherents INT,
+    nombreAdherents SMALLINT,
     ville VARCHAR(100),
     departement VARCHAR(100),
     region VARCHAR(100)
 );
 
--- Table Utilisateurs
 CREATE TABLE Utilisateurs (
     numUtilisateur INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
     prenom VARCHAR(100) NOT NULL,
-    adresse VARCHAR(255),
+    adresse VARCHAR(255) NOT NULL,
     login VARCHAR(50) UNIQUE NOT NULL,
     motDePasse VARCHAR(255) NOT NULL,
-    numClub INT,
-    FOREIGN KEY (numClub) REFERENCES Club(numClub) ON DELETE CASCADE
+    numClub INT NOT NULL,
+    FOREIGN KEY (numClub) REFERENCES Club(numClub)
 );
 
--- Table Directeur
 CREATE TABLE Directeur (
     numDirecteur INT PRIMARY KEY,
-    dateDebut DATE,
-    FOREIGN KEY (numDirecteur) REFERENCES Utilisateurs(numUtilisateur) ON DELETE CASCADE
+    dateDebut DATE NOT NULL,
+    FOREIGN KEY (numDirecteur) REFERENCES Utilisateurs(numUtilisateur)
 );
 
--- Table Concours
 CREATE TABLE Concours (
     numConcours INT AUTO_INCREMENT PRIMARY KEY,
     numPresident INT NOT NULL,
@@ -41,24 +37,21 @@ CREATE TABLE Concours (
     dateDebut DATE NOT NULL,
     dateFin DATE NOT NULL,
     etat ENUM('non commence', 'en cours', 'en attente des resultats', 'evalue') NOT NULL,
-    FOREIGN KEY (numPresident) REFERENCES Utilisateurs(numUtilisateur) ON DELETE CASCADE
+    FOREIGN KEY (numPresident) REFERENCES Utilisateurs(numUtilisateur)
 );
 
--- Table Président
 CREATE TABLE President (
     numPresident INT PRIMARY KEY,
-    prime DECIMAL(10, 2),
-    FOREIGN KEY (numPresident) REFERENCES Utilisateurs(numUtilisateur) ON DELETE CASCADE
+    prime INT NOT NULL,
+    FOREIGN KEY (numPresident) REFERENCES Utilisateurs(numUtilisateur)
 );
 
--- Table Compétiteurs
 CREATE TABLE Competiteurs (
     numCompetiteur INT PRIMARY KEY,
-    datePremiereParticipation DATE,
-    FOREIGN KEY (numCompetiteur) REFERENCES Utilisateurs(numUtilisateur) ON DELETE CASCADE
-);
+    datePremiereParticipation DATE NOT NULL,
+    FOREIGN KEY (numCompetiteur) REFERENCES Utilisateurs(numUtilisateur)
+)
 
--- Table Dessins
 CREATE TABLE Dessins (
     numDessins INT AUTO_INCREMENT PRIMARY KEY,
     commentaire TEXT,
@@ -67,59 +60,53 @@ CREATE TABLE Dessins (
     leDessin TEXT,
     numConcours INT NOT NULL,
     numCompetiteur INT NOT NULL,
-    FOREIGN KEY (numConcours) REFERENCES Concours(numConcours) ON DELETE CASCADE,
-    FOREIGN KEY (numCompetiteur) REFERENCES Competiteurs(numCompetiteur) ON DELETE CASCADE
+    FOREIGN KEY (numConcours) REFERENCES Concours(numConcours),
+    FOREIGN KEY (numCompetiteur) REFERENCES Competiteurs(numCompetiteur)
 );
 
--- Table Evaluateur
 CREATE TABLE Evaluateur (
     numEvaluateur INT PRIMARY KEY,
-    specialite VARCHAR(255),
-    FOREIGN KEY (numEvaluateur) REFERENCES Utilisateurs(numUtilisateur) ON DELETE CASCADE
+    specialite VARCHAR(255) NOT NULL,
+    FOREIGN KEY (numEvaluateur) REFERENCES Utilisateurs(numUtilisateur)
 );
 
--- Table Evaluation
 CREATE TABLE Evaluation (
     numDessins INT NOT NULL,
     numEvaluateur INT NOT NULL,
     dateEvaluation DATE,
-    note DECIMAL(4, 2),
+    note INT,
     commentaire TEXT,
     PRIMARY KEY (numDessins, numEvaluateur),
-    FOREIGN KEY (numDessins) REFERENCES Dessins(numDessins) ON DELETE CASCADE,
-    FOREIGN KEY (numEvaluateur) REFERENCES Evaluateur(numEvaluateur) ON DELETE CASCADE
+    FOREIGN KEY (numDessins) REFERENCES Dessins(numDessins),
+    FOREIGN KEY (numEvaluateur) REFERENCES Evaluateur(numEvaluateur)
 );
 
--- Table Administrateur
 CREATE TABLE Administrateur (
     numAdministrateur INT PRIMARY KEY,
     dateDebut DATE,
-    FOREIGN KEY (numAdministrateur) REFERENCES Utilisateurs(numUtilisateur) ON DELETE CASCADE
+    FOREIGN KEY (numAdministrateur) REFERENCES Utilisateurs(numUtilisateur)
 );
 
--- Table Jury
 CREATE TABLE Jury (
     numEvaluateur INT NOT NULL,
     numConcours INT NOT NULL,
     PRIMARY KEY (numEvaluateur, numConcours),
-    FOREIGN KEY (numEvaluateur) REFERENCES Evaluateur(numEvaluateur) ON DELETE CASCADE,
-    FOREIGN KEY (numConcours) REFERENCES Concours(numConcours) ON DELETE CASCADE
+    FOREIGN KEY (numEvaluateur) REFERENCES Evaluateur(numEvaluateur),
+    FOREIGN KEY (numConcours) REFERENCES Concours(numConcours)
 );
 
--- Table Participe Competiteur
 CREATE TABLE ParticipeCompetiteur (
     numCompetiteur INT NOT NULL,
     numConcours INT NOT NULL,
     PRIMARY KEY (numCompetiteur, numConcours),
-    FOREIGN KEY (numCompetiteur) REFERENCES Competiteurs(numCompetiteur) ON DELETE CASCADE,
-    FOREIGN KEY (numConcours) REFERENCES Concours(numConcours) ON DELETE CASCADE
+    FOREIGN KEY (numCompetiteur) REFERENCES Competiteurs(numCompetiteur),
+    FOREIGN KEY (numConcours) REFERENCES Concours(numConcours)
 );
 
--- Table Participe Club
 CREATE TABLE ParticipeClub (
     numClub INT NOT NULL,
     numConcours INT NOT NULL,
     PRIMARY KEY (numClub, numConcours),
-    FOREIGN KEY (numClub) REFERENCES Club(numClub) ON DELETE CASCADE,
-    FOREIGN KEY (numConcours) REFERENCES Concours(numConcours) ON DELETE CASCADE
+    FOREIGN KEY (numClub) REFERENCES Club(numClub),
+    FOREIGN KEY (numConcours) REFERENCES Concours(numConcours)
 );
