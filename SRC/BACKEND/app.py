@@ -17,7 +17,7 @@ Pour éxécuter l'api :
 """
 
 # IMPORT
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from markupsafe import escape
 import mysql.connector
 
@@ -67,6 +67,27 @@ def data():
 
     # Retour de la data : (Gestion d'erreur si pas de data)
     return jsonify({'data': resultat[0]}) if resultat else jsonify({'data': 'No data'})
+
+
+
+
+# FONCTION LOGIN (NON CONNECTE A LA DATABASE)
+
+users = {
+    "admin": "test",
+    "user1": "test",
+}
+
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+
+    if username in users and users[username] == password:
+        return jsonify({"message": "Login successful"}), 200
+    else:
+        return jsonify({"message": "Invalid username or password"}), 401
 
 
 
