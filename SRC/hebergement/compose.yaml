@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+  sli_database:
+    image: mariadb:latest
+    restart: always
+    environment:
+      MYSQL_USER: ****
+      MYSQL_PASSWORD: ****
+      MYSQL_DATABASE: ****
+      MYSQL_ROOT_PASSWORD: ****
+
+  sli_phpmyadmin:
+    image: phpmyadmin:latest
+    restart: always
+    ports:
+      - ****:80
+    depends_on:
+      - sli_database
+    environment:
+      PMA_HOST: ****
+      MYSQL_ROOT_PASSWORD: ****
+
+  sli_httpd:
+    image: httpd:latest
+    container_name: my_apache
+    ports:
+      - "****:80"
+    volumes:
+      - /volume1/docker/slimane/httpd:/usr/local/apache2/htdocs
