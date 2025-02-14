@@ -5,6 +5,7 @@ API SLIM PROJET
 Documentation : https://flask.palletsprojects.com/en/stable/quickstart/
 
 Pour éxécuter l'api : 
+    (Plus d'utilisation de venv pour l'instant)
 - se placer dans le dossier avec app.py
 - dans le cmd: python app.py
 
@@ -26,7 +27,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-# CONFIF à éditer pour la base de données MARIADB (changer les valeurs précédé par un @)
+# CONFIF à éditer pour la base de données MARIADB (changer les valeurs précédé par un @)   <== Implémenter un .env 
 db_config = {
     'host': '@ip',
     'user': '@utilisateur',
@@ -40,7 +41,7 @@ db_config = {
 @app.route("/")
 # Fonction de test
 def hello_world():
-    return "<p>Hello, World!</p>"
+    return "<p>Salut les zgeg</p>"
 
 
 @app.route("/<test>")
