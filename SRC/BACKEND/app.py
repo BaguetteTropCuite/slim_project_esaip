@@ -5,12 +5,9 @@ API SLIM PROJET
 Documentation : https://flask.palletsprojects.com/en/stable/quickstart/
 
 Pour éxécuter l'api : 
-- Créer un environnement virtuel
-- Activer l'env virtuel
-- installer requirement.txt
+- se placer dans le dossier avec app.py
+- dans le cmd: python app.py
 
-- > flask --app NomDuFichier run
-- > flask --app hello run --debug
 
 
 
@@ -20,12 +17,14 @@ Pour éxécuter l'api :
 from flask import Flask, jsonify, request
 from markupsafe import escape
 import mysql.connector
+from flask_cors import CORS
 
 
 
 # API SETUP
 
 app = Flask(__name__)
+CORS(app)
 
 # CONFIF à éditer pour la base de données MARIADB (changer les valeurs précédé par un @)
 db_config = {
@@ -90,4 +89,6 @@ def login():
         return jsonify({"message": "Invalid username or password"}), 401
 
 
-
+#si vous faites methodes windows
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)
