@@ -1,3 +1,8 @@
+-- Accorder tous les privilèges à l'utilisateur esaip
+GRANT ALL PRIVILEGES ON *.* TO 'esaip'@'%' IDENTIFIED BY 'esaip' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+
 CREATE DATABASE ConcoursDessin;
 USE ConcoursDessin;
 
