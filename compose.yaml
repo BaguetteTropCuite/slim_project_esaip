@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: esaip
+      MYSQL_USER: esaip
+      MYSQL_PASSWORD: esaip
+    volumes:
+      - ./DATABASE/create_dessin_db_v1.sql:/docker-entrypoint-initdb.d/dump.sql
+      - mariadb_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mariadb
+      PMA_USER: esaip
+      PMA_PASSWORD: esaip
+    ports:
+      - "8080:80"
+    depends_on:
+      - mariadb
+
+volumes:
+  mariadb_data:
