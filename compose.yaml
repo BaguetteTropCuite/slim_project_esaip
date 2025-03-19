@@ -9,7 +9,7 @@ services:
       MYSQL_USER: esaip
       MYSQL_PASSWORD: esaip
     volumes:
-      - ./DATABASE/create_dessin_db_v1.sql:/docker-entrypoint-initdb.d/dump.sql
+      - ./DATABASE/create_dessin_db_v1.sql:/docker-entrypoint-initdb.d/create_dessin_db_v1.sql
       - mariadb_data:/var/lib/mysql
     ports:
       - "3306:3306"
