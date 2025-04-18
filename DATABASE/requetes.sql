@@ -123,3 +123,43 @@ GROUP BY
 ORDER BY 
     moyenneNotes DESC
 LIMIT 1;
+
+# 6 
+SELECT c.numConcours, c.theme, c.dateDebut, c.dateFin
+FROM Concours c
+LEFT JOIN Dessins d ON c.numConcours = d.numConcours
+LEFT JOIN Evaluation e ON d.numDessins = e.numDessins
+WHERE e.numDessins IS NULL;
+
+
+
+# 7 
+SELECT c.numConcours, c.theme, COUNT(d.numDessins) AS nombreDessins
+FROM Concours c
+LEFT JOIN Dessins d ON c.numConcours = d.numConcours
+GROUP BY c.numConcours, c.theme;
+
+ 
+# 8 
+SELECT u.nom, u.prenom, COUNT(e.numDessins) AS nbEvaluations
+FROM Evaluation e
+JOIN Evaluateur ev ON e.numEvaluateur = ev.numEvaluateur
+JOIN Utilisateurs u ON ev.numEvaluateur = u.numUtilisateur
+GROUP BY u.nom, u.prenom;
+
+ 
+# 9
+SELECT DISTINCT u.nom, u.prenom, e.note
+FROM Evaluation e
+JOIN Dessins d ON e.numDessins = d.numDessins
+JOIN Utilisateurs u ON d.numCompetiteur = u.numUtilisateur
+WHERE e.note >= 18;
+
+
+# 10 
+SELECT c.numConcours, c.theme, u.nom AS nomPresident, u.prenom AS prenomPresident, COUNT(j.numEvaluateur) AS nbEvaluateurs
+FROM Concours c
+JOIN Utilisateurs u ON c.numPresident = u.numUtilisateur
+LEFT JOIN Jury j ON c.numConcours = j.numConcours
+GROUP BY c.numConcours, c.theme, u.nom, u.prenom;
+

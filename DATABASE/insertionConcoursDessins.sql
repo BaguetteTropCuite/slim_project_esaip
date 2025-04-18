@@ -1,70 +1,176 @@
--- Accorder tous les privilèges à l'utilisateur esaip
-GRANT ALL PRIVILEGES ON *.* TO 'esaip'@'%' IDENTIFIED BY 'esaip' WITH GRANT OPTION;
-FLUSH PRIVILEGES;
+INSERT INTO Club (numClub,numDirecteur,nomClub,adresse,numTelephone,nombreAdherents,ville,departement,region) VALUES (1, 101, 'Club A', '10 Rue A', '0101010101', 50, 'Paris', 'Paris', 'Ile-de-France');
+INSERT INTO Club (numClub,numDirecteur,nomClub,adresse,numTelephone,nombreAdherents,ville,departement,region) VALUES (2, 102, 'Club B', '20 Rue B', '0202020202', 45, 'Lyon', 'Rhône', 'Auvergne-Rhône-Alpes');
+INSERT INTO Club (numClub,numDirecteur,nomClub,adresse,numTelephone,nombreAdherents,ville,departement,region) VALUES (3, 103, 'Club C', '30 Rue C', '0303030303', 60, 'Marseille', 'Bouches-du-Rhône', "Provence-Alpes-Côte d'Azur");
+INSERT INTO Club (numClub,numDirecteur,nomClub,adresse,numTelephone,nombreAdherents,ville,departement,region) VALUES (4, 104, 'Club D', '40 Rue D', '0404040404', 55, 'Toulouse', 'Haute-Garonne', 'Occitanie');
+INSERT INTO Club (numClub,numDirecteur,nomClub,adresse,numTelephone,nombreAdherents,ville,departement,region) VALUES (5, 105, 'Club E', '50 Rue E', '0505050505', 65, 'Nice', 'Alpes-Maritimes', "Provence-Alpes-Côte d'Azur");
+INSERT INTO Club (numClub,numDirecteur,nomClub,adresse,numTelephone,nombreAdherents,ville,departement,region) VALUES (6, 106, 'Club F', '60 Rue F', '0606060606', 40, 'Nantes', 'Loire-Atlantique', 'Pays de la Loire');
 
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (101, 'DirNom1', 'DirPren1', 'Adresse Club1', 'dir1', 'mdp', 1);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (102, 'DirNom2', 'DirPren2', 'Adresse Club2', 'dir2', 'mdp', 2);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (103, 'DirNom3', 'DirPren3', 'Adresse Club3', 'dir3', 'mdp', 3);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (104, 'DirNom4', 'DirPren4', 'Adresse Club4', 'dir4', 'mdp', 4);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (105, 'DirNom5', 'DirPren5', 'Adresse Club5', 'dir5', 'mdp', 5);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (106, 'DirNom6', 'DirPren6', 'Adresse Club6', 'dir6', 'mdp', 6);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (201, 'PresNom201', 'PresPren201', 'Adresse Pres201', 'pres201', 'mdp', 2);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (202, 'PresNom202', 'PresPren202', 'Adresse Pres202', 'pres202', 'mdp', 3);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (203, 'PresNom203', 'PresPren203', 'Adresse Pres203', 'pres203', 'mdp', 4);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (204, 'PresNom204', 'PresPren204', 'Adresse Pres204', 'pres204', 'mdp', 5);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (205, 'PresNom205', 'PresPren205', 'Adresse Pres205', 'pres205', 'mdp', 6);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (206, 'PresNom206', 'PresPren206', 'Adresse Pres206', 'pres206', 'mdp', 1);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (207, 'PresNom207', 'PresPren207', 'Adresse Pres207', 'pres207', 'mdp', 2);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (208, 'PresNom208', 'PresPren208', 'Adresse Pres208', 'pres208', 'mdp', 3);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (301, 'CompNom301', 'CompPren301', 'Adresse Comp301', 'comp301', 'mdp', 1);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (302, 'CompNom302', 'CompPren302', 'Adresse Comp302', 'comp302', 'mdp', 1);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (303, 'CompNom303', 'CompPren303', 'Adresse Comp303', 'comp303', 'mdp', 1);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (304, 'CompNom304', 'CompPren304', 'Adresse Comp304', 'comp304', 'mdp', 1);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (305, 'CompNom305', 'CompPren305', 'Adresse Comp305', 'comp305', 'mdp', 1);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (306, 'CompNom306', 'CompPren306', 'Adresse Comp306', 'comp306', 'mdp', 1);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (307, 'CompNom307', 'CompPren307', 'Adresse Comp307', 'comp307', 'mdp', 2);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (308, 'CompNom308', 'CompPren308', 'Adresse Comp308', 'comp308', 'mdp', 2);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (309, 'CompNom309', 'CompPren309', 'Adresse Comp309', 'comp309', 'mdp', 2);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (310, 'CompNom310', 'CompPren310', 'Adresse Comp310', 'comp310', 'mdp', 2);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (311, 'CompNom311', 'CompPren311', 'Adresse Comp311', 'comp311', 'mdp', 2);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (312, 'CompNom312', 'CompPren312', 'Adresse Comp312', 'comp312', 'mdp', 2);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (313, 'CompNom313', 'CompPren313', 'Adresse Comp313', 'comp313', 'mdp', 3);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (314, 'CompNom314', 'CompPren314', 'Adresse Comp314', 'comp314', 'mdp', 3);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (315, 'CompNom315', 'CompPren315', 'Adresse Comp315', 'comp315', 'mdp', 3);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (316, 'CompNom316', 'CompPren316', 'Adresse Comp316', 'comp316', 'mdp', 3);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (317, 'CompNom317', 'CompPren317', 'Adresse Comp317', 'comp317', 'mdp', 3);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (318, 'CompNom318', 'CompPren318', 'Adresse Comp318', 'comp318', 'mdp', 3);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (319, 'CompNom319', 'CompPren319', 'Adresse Comp319', 'comp319', 'mdp', 4);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (320, 'CompNom320', 'CompPren320', 'Adresse Comp320', 'comp320', 'mdp', 4);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (321, 'CompNom321', 'CompPren321', 'Adresse Comp321', 'comp321', 'mdp', 4);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (322, 'CompNom322', 'CompPren322', 'Adresse Comp322', 'comp322', 'mdp', 4);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (323, 'CompNom323', 'CompPren323', 'Adresse Comp323', 'comp323', 'mdp', 4);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (324, 'CompNom324', 'CompPren324', 'Adresse Comp324', 'comp324', 'mdp', 4);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (325, 'CompNom325', 'CompPren325', 'Adresse Comp325', 'comp325', 'mdp', 5);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (326, 'CompNom326', 'CompPren326', 'Adresse Comp326', 'comp326', 'mdp', 5);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (327, 'CompNom327', 'CompPren327', 'Adresse Comp327', 'comp327', 'mdp', 5);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (328, 'CompNom328', 'CompPren328', 'Adresse Comp328', 'comp328', 'mdp', 5);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (329, 'CompNom329', 'CompPren329', 'Adresse Comp329', 'comp329', 'mdp', 5);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (330, 'CompNom330', 'CompPren330', 'Adresse Comp330', 'comp330', 'mdp', 5);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (331, 'CompNom331', 'CompPren331', 'Adresse Comp331', 'comp331', 'mdp', 6);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (332, 'CompNom332', 'CompPren332', 'Adresse Comp332', 'comp332', 'mdp', 6);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (333, 'CompNom333', 'CompPren333', 'Adresse Comp333', 'comp333', 'mdp', 6);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (334, 'CompNom334', 'CompPren334', 'Adresse Comp334', 'comp334', 'mdp', 6);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (335, 'CompNom335', 'CompPren335', 'Adresse Comp335', 'comp335', 'mdp', 6);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (336, 'CompNom336', 'CompPren336', 'Adresse Comp336', 'comp336', 'mdp', 6);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (401, 'EvalNom401', 'EvalPren401', 'Adresse Eval401', 'eval401', 'mdp', 1);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (402, 'EvalNom402', 'EvalPren402', 'Adresse Eval402', 'eval402', 'mdp', 1);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (403, 'EvalNom403', 'EvalPren403', 'Adresse Eval403', 'eval403', 'mdp', 1);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (404, 'EvalNom404', 'EvalPren404', 'Adresse Eval404', 'eval404', 'mdp', 2);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (405, 'EvalNom405', 'EvalPren405', 'Adresse Eval405', 'eval405', 'mdp', 2);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (406, 'EvalNom406', 'EvalPren406', 'Adresse Eval406', 'eval406', 'mdp', 2);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (407, 'EvalNom407', 'EvalPren407', 'Adresse Eval407', 'eval407', 'mdp', 3);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (408, 'EvalNom408', 'EvalPren408', 'Adresse Eval408', 'eval408', 'mdp', 3);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (409, 'EvalNom409', 'EvalPren409', 'Adresse Eval409', 'eval409', 'mdp', 3);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (410, 'EvalNom410', 'EvalPren410', 'Adresse Eval410', 'eval410', 'mdp', 4);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (411, 'EvalNom411', 'EvalPren411', 'Adresse Eval411', 'eval411', 'mdp', 4);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (412, 'EvalNom412', 'EvalPren412', 'Adresse Eval412', 'eval412', 'mdp', 4);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (413, 'EvalNom413', 'EvalPren413', 'Adresse Eval413', 'eval413', 'mdp', 5);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (414, 'EvalNom414', 'EvalPren414', 'Adresse Eval414', 'eval414', 'mdp', 5);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (415, 'EvalNom415', 'EvalPren415', 'Adresse Eval415', 'eval415', 'mdp', 5);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (416, 'EvalNom416', 'EvalPren416', 'Adresse Eval416', 'eval416', 'mdp', 6);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (417, 'EvalNom417', 'EvalPren417', 'Adresse Eval417', 'eval417', 'mdp', 6);
+INSERT INTO Utilisateurs (numUtilisateur,nom,prenom,adresse,login,motDePasse,numClub) VALUES (418, 'EvalNom418', 'EvalPren418', 'Adresse Eval418', 'eval418', 'mdp', 6);
 
-CREATE DATABASE ConcoursDessin;
-USE ConcoursDessin;
+INSERT INTO Directeur (numDirecteur,dateDebut) VALUES (101, '2020-01-01');
+INSERT INTO Directeur (numDirecteur,dateDebut) VALUES (102, '2020-01-01');
+INSERT INTO Directeur (numDirecteur,dateDebut) VALUES (103, '2020-01-01');
+INSERT INTO Directeur (numDirecteur,dateDebut) VALUES (104, '2020-01-01');
+INSERT INTO Directeur (numDirecteur,dateDebut) VALUES (105, '2020-01-01');
+INSERT INTO Directeur (numDirecteur,dateDebut) VALUES (106, '2020-01-01');
 
-CREATE TABLE Club (
-    numClub INT AUTO_INCREMENT PRIMARY KEY,
-    numDirecteur INT NOT NULL,
-    nomClub VARCHAR(255) NOT NULL,
-    adresse VARCHAR(255),
-    numTelephone VARCHAR(15),
-    nombreAdherents SMALLINT,
-    ville VARCHAR(100),
-    departement VARCHAR(100),
-    region VARCHAR(100)
-);
+INSERT INTO President (numPresident,prime) VALUES (201, 100);
+INSERT INTO President (numPresident,prime) VALUES (202, 200);
+INSERT INTO President (numPresident,prime) VALUES (203, 300);
+INSERT INTO President (numPresident,prime) VALUES (204, 400);
+INSERT INTO President (numPresident,prime) VALUES (205, 500);
+INSERT INTO President (numPresident,prime) VALUES (206, 600);
+INSERT INTO President (numPresident,prime) VALUES (207, 700);
+INSERT INTO President (numPresident,prime) VALUES (208, 800);
 
-CREATE TABLE Utilisateurs (
-    numUtilisateur INT AUTO_INCREMENT PRIMARY KEY,
-    nom VARCHAR(100) NOT NULL,
-    prenom VARCHAR(100) NOT NULL,
-    adresse VARCHAR(255) NOT NULL,
-    login VARCHAR(50) UNIQUE NOT NULL,
-    motDePasse VARCHAR(255) NOT NULL,
-    numClub INT NOT NULL,
-    FOREIGN KEY (numClub) REFERENCES Club(numClub)
-);
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (301, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (302, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (303, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (304, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (305, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (306, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (307, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (308, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (309, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (310, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (311, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (312, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (313, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (314, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (315, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (316, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (317, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (318, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (319, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (320, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (321, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (322, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (323, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (324, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (325, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (326, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (327, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (328, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (329, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (330, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (331, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (332, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (333, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (334, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (335, '2023-01-01');
+INSERT INTO Competiteurs (numCompetiteur,datePremiereParticipation) VALUES (336, '2023-01-01');
 
-CREATE TABLE Directeur (
-    numDirecteur INT PRIMARY KEY,
-    dateDebut DATE NOT NULL,
-    FOREIGN KEY (numDirecteur) REFERENCES Utilisateurs(numUtilisateur)
-);
+INSERT INTO Evaluateur (numEvaluateur,specialite) VALUES (401, 'Specialite1');
+INSERT INTO Evaluateur (numEvaluateur,specialite) VALUES (402, 'Specialite1');
+INSERT INTO Evaluateur (numEvaluateur,specialite) VALUES (403, 'Specialite1');
+INSERT INTO Evaluateur (numEvaluateur,specialite) VALUES (404, 'Specialite2');
+INSERT INTO Evaluateur (numEvaluateur,specialite) VALUES (405, 'Specialite2');
+INSERT INTO Evaluateur (numEvaluateur,specialite) VALUES (406, 'Specialite2');
+INSERT INTO Evaluateur (numEvaluateur,specialite) VALUES (407, 'Specialite3');
+INSERT INTO Evaluateur (numEvaluateur,specialite) VALUES (408, 'Specialite3');
+INSERT INTO Evaluateur (numEvaluateur,specialite) VALUES (409, 'Specialite3');
+INSERT INTO Evaluateur (numEvaluateur,specialite) VALUES (410, 'Specialite4');
+INSERT INTO Evaluateur (numEvaluateur,specialite) VALUES (411, 'Specialite4');
+INSERT INTO Evaluateur (numEvaluateur,specialite) VALUES (412, 'Specialite4');
+INSERT INTO Evaluateur (numEvaluateur,specialite) VALUES (413, 'Specialite5');
+INSERT INTO Evaluateur (numEvaluateur,specialite) VALUES (414, 'Specialite5');
+INSERT INTO Evaluateur (numEvaluateur,specialite) VALUES (415, 'Specialite5');
+INSERT INTO Evaluateur (numEvaluateur,specialite) VALUES (416, 'Specialite6');
+INSERT INTO Evaluateur (numEvaluateur,specialite) VALUES (417, 'Specialite6');
+INSERT INTO Evaluateur (numEvaluateur,specialite) VALUES (418, 'Specialite6');
 
-CREATE TABLE Concours (
-    numConcours INT AUTO_INCREMENT PRIMARY KEY,
-    numPresident INT NOT NULL,
-    theme VARCHAR(255) NOT NULL,
-    dateDebut DATE NOT NULL,
-    dateFin DATE NOT NULL,
-    etat ENUM('non commence', 'en cours', 'en attente des resultats', 'evalue') NOT NULL,
-    FOREIGN KEY (numPresident) REFERENCES Utilisateurs(numUtilisateur)
-);
+INSERT INTO Concours (numConcours,numPresident,theme,dateDebut,dateFin,etat) VALUES (1,201,'Thème 2023-1','2023-03-20','2023-03-27','evalue');
+INSERT INTO Concours (numConcours,numPresident,theme,dateDebut,dateFin,etat) VALUES (2,202,'Thème 2023-2','2023-06-21','2023-06-28','en cours');
+INSERT INTO Concours (numConcours,numPresident,theme,dateDebut,dateFin,etat) VALUES (3,203,'Thème 2023-3','2023-09-23','2023-09-30','non commence');
+INSERT INTO Concours (numConcours,numPresident,theme,dateDebut,dateFin,etat) VALUES (4,204,'Thème 2023-4','2023-12-21','2023-12-28','en attente des resultats');
+INSERT INTO Concours (numConcours,numPresident,theme,dateDebut,dateFin,etat) VALUES (5,205,'Thème 2024-1','2024-03-20','2024-03-27','evalue');
+INSERT INTO Concours (numConcours,numPresident,theme,dateDebut,dateFin,etat) VALUES (6,206,'Thème 2024-2','2024-06-21','2024-06-28','en cours');
+INSERT INTO Concours (numConcours,numPresident,theme,dateDebut,dateFin,etat) VALUES (7,207,'Thème 2024-3','2024-09-23','2024-09-30','non commence');
+INSERT INTO Concours (numConcours,numPresident,theme,dateDebut,dateFin,etat) VALUES (8,208,'Thème 2024-4','2024-12-21','2024-12-28','en attente des resultats');
 
-CREATE TABLE President (
-    numPresident INT PRIMARY KEY,
-    prime INT NOT NULL,
-    FOREIGN KEY (numPresident) REFERENCES Utilisateurs(numUtilisateur)
-);
-
-CREATE TABLE Competiteurs (
-    numCompetiteur INT PRIMARY KEY,
-    datePremiereParticipation DATE NOT NULL,
-    FOREIGN KEY (numCompetiteur) REFERENCES Utilisateurs(numUtilisateur)
-);
-
-CREATE TABLE Dessins (
-    numDessins INT AUTO_INCREMENT PRIMARY KEY,
-    commentaire TEXT,
-    classement INT,
-    dateRemise DATE,
-    leDessin TEXT,
-    numCINSERT INTO ParticipeClub (numClub,numConcours) VALUES (2,8);
-
+INSERT INTO ParticipeClub (numClub,numConcours) VALUES (1,1);
+INSERT INTO ParticipeClub (numClub,numConcours) VALUES (1,2);
+INSERT INTO ParticipeClub (numClub,numConcours) VALUES (1,3);
+INSERT INTO ParticipeClub (numClub,numConcours) VALUES (1,4);
+INSERT INTO ParticipeClub (numClub,numConcours) VALUES (1,5);
+INSERT INTO ParticipeClub (numClub,numConcours) VALUES (1,6);
+INSERT INTO ParticipeClub (numClub,numConcours) VALUES (1,7);
+INSERT INTO ParticipeClub (numClub,numConcours) VALUES (1,8);
+INSERT INTO ParticipeClub (numClub,numConcours) VALUES (2,1);
+INSERT INTO ParticipeClub (numClub,numConcours) VALUES (2,2);
+INSERT INTO ParticipeClub (numClub,numConcours) VALUES (2,3);
+INSERT INTO ParticipeClub (numClub,numConcours) VALUES (2,4);
+INSERT INTO ParticipeClub (numClub,numConcours) VALUES (2,5);
+INSERT INTO ParticipeClub (numClub,numConcours) VALUES (2,6);
+INSERT INTO ParticipeClub (numClub,numConcours) VALUES (2,7);
+INSERT INTO ParticipeClub (numClub,numConcours) VALUES (2,8);
 INSERT INTO ParticipeClub (numClub,numConcours) VALUES (3,1);
 INSERT INTO ParticipeClub (numClub,numConcours) VALUES (3,2);
 INSERT INTO ParticipeClub (numClub,numConcours) VALUES (3,3);
